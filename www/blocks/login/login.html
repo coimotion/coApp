@@ -1,0 +1,17 @@
+<div class="current text-center">
+<form>
+    <!-- <h2>請登入</h2> -->
+    <div class="btn-group">
+      <button id="start" type="button" class="btn btn-default" onclick="_wf.ctrl('login').switchField('log')">登入</button>
+      <button type="button" class="btn btn-default" onclick="_wf.ctrl('login').switchField('reg')">註冊</button>
+    </div>
+    <div><input type="email" name="accName" class="form-control" placeholder="帳號" /></div>
+    <div><input type="password" name="passwd" class="form-control" placeholder="密碼" /></div>
+    <div><input type="password" name="passwd2" class="form-control regField" placeholder="重複密碼" /></div>
+
+    <div>
+        <button type="button" class="btn btn-warning regField" onclick="_wf.ctrl('login').doRegister();">註冊<i class="glyphicon glyphicon-arrow-right"></i></button>
+        <button type="button" class="btn btn-primary btn-lg logField" onclick="_wf.ctrl('login').doLogin();">登入<i class="glyphicon glyphicon-arrow-right"></i></button>
+    </div>
+</form>
+</div>

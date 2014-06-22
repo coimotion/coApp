@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.gocharm.coim.tnote" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>WireNotes</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="service@gocharm.com.tw" href="http://www.coimotion.com">
+        Gocharm COIMOTION Team
+    </author>
+    <content src="index.html" />
+    <key>Plugins</key>
+    <dict>
+        <key>Camera</key>
+        <string>CDVCamera</string>
+    </dict>
+    <access origin="*" />
+</widget>

@@ -1,0 +1,14 @@
+<div>
+    <a href="#" class="btn btn-default btn-sm pull-right" onclick="_wf.loadPage('edit', {id: -1, effect: 'nextDisp'});"><i class="glyphicon glyphicon-plus"></i></a>
+
+    <h3><i class="glyphicon glyphicon-th-list"></i>我的隨身筆記</h3>
+</div>
+
+<div class="panel panel-default">
+  <!-- List group -->
+  <ul class="list-group">
+    {{#each value.list}}
+    <li class="list-group-item"><a href="javascript:_wf.ctrl('list').viewPage('{{ngID}}');">{{title}}</a></li>
+    {{/each}}
+  </ul>
+</div>

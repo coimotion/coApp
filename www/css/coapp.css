@@ -1,0 +1,76 @@
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    //-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+
+    overflow:hidden;
+    width: 320px;
+}
+
+.page {
+    position: absolute;
+    top: 20px;
+    left: 340px;
+    width: 320px;
+    height: 560px;
+    z-index: 100;
+
+    background-color: #fff;
+    border: 1px solid #aaa;
+
+    -webkit-transition: left 0.5s ease;
+}
+
+.onDisp {
+    top: 20px;
+    left: 0px;
+}
+
+.gotoDisp {
+    left: 340px;
+    z-index: 0;
+    -webkit-transition: left 0s;
+}
+
+.nextDisp {
+    left: -340px;
+    z-index: 0;
+    -webkit-transition: left 0s;
+}
+
+/* Below are styles for individual pages */
+#login .current {
+    width:;
+    border: 2px #C0C0C0 solid;
+    /*margin: 25% 30px; */
+    /*padding: 15px;*/
+    border-radius: 30px;
+}
+
+#login input {
+    width: 80%!important;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#login  button.regField,
+#login  button.logField {
+    border-radius: 10%;
+}
+
+#edit input {
+    width: 80%!important;
+    text-align: center;
+    margin: 1em auto;
+}
+
+#edit button > i {
+    font-size: 40px;
+}
+
+#edit #cameraPic {
+    width: 200px;
+    border: 1px #c0c0c0 solid;
+    margin-bottom: 2em;
+}
