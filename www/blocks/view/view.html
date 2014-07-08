@@ -1,17 +1,21 @@
 <!-- Don't style this. This is only to carry data to perform needed functions -->
 <div id="_params" data-ngid="{{id}}"></div>
 
-<div>
-    <button class="btn btn-sm btn-default pull-left" onclick="_wf.loadPage('list', {refresh: false});"><i class="glyphicon glyphicon-arrow-left" style="font-size: 20px;"></i></button>
-    <h2>{{value.title}}</h2>
+<div class="heading">
+    <button class="mini ui basic icon button" style="float:left;" onclick="_wf.loadPage('list', {refresh: false});">
+        <i class="small backward icon"></i>
+    </button>
+    <div class="ui title"><i class="file outline icon"></i>{{value.title}}</div>
 </div>
 
-<div id="noteBody">
-{{#each value.picList}}
-    <div style="text-align:center;">
-        <img src="" data-path="{{dataURI}}"    />
+<div class="ui segment" style="margin: 10px;">
+    <div id="noteBody">
+    {{#each value.picList}}
+        <div style="text-align:center;">
+            <img class="rounded ui image" style="margin:0px auto;" src="" data-path="{{dataURI}}"    />
+        </div>
+    {{/each}}
     </div>
-{{/each}}
+    <div class="ui divider"></div>
+    <p style="padding:0px 10px; font-size: 16px;">{{value.body}}</p>
 </div>
-<hr />
-<p style="padding:0px 10px; font-size: 16px;">{{value.body}}</p>

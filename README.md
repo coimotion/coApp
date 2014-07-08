@@ -33,6 +33,13 @@ coApp 一開始只是為了展示如何使用 COIMOTION 的 API 服務而建立�
 COIMOTION 團隊目前專注於後端服務（BaaS）的開發，不過我們樂於見到 coApp 能進一步發展成為 app 開發者的有效工具。所以如果有開發者有興趣協助 coApp 進一步的開發，歡迎和我們[聯繫](http://tw.coimotion.com/#content6)或討論。目前比較需要改善的部分包含頁面的過場效果、Android devices 的設定、以及 UI framework 的選用等。
 
 ## Release Note
+0.0.3:
+
+* 離線時仍能顯示畫面。
+* 新增 zoom-out 的換頁過場效果。
+* 以 Javascript 判讀裝置的大小，不再使用 CSS media query。程式目前可以在 iOS 和 Android 上正常執行。
+* 以 semantic-ui 取代 bootstrap。
+
 0.0.2: 在 coapp.css 加上 media query，使不同的 iOS devices (iPhone, iPad) 能正常顯示。
 
 0.0.1: 初次公告版本。

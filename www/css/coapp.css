@@ -1,74 +1,59 @@
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    //-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    /* -webkit-text-size-adjust: none; */            /* prevent webkit from resizing text to fit */
+    -webkit-user-select: text;                  /* prevent copy paste, to allow, change 'none' to 'text' */
 
+    margin-top: 0px;
     overflow:hidden;
     width: 320px;
+    font-size: 14px;
 }
 
-.page {
+.mpage {
     position: absolute;
-    top: 20px;
-    left: 340px;
-    width: 320px;
-    height: 560px;
-    z-index: 100;
+    z-index: 10;
 
     background-color: #fff;
-    border: 1px solid #aaa;
 
-    -webkit-transition: left 0.5s ease;
+    -webkit-transition: left 0.5s ease, -webkit-transform 0.5s ease;ut;
 }
 
 .onDisp {
-    top: 20px;
     left: 0px;
 }
 
 .gotoDisp {
-    left: 340px;
     z-index: 0;
     -webkit-transition: left 0s;
 }
 
 .nextDisp {
-    left: -340px;
     z-index: 0;
     -webkit-transition: left 0s;
 }
 
+.zoomDisp {
+    left: 0px;
+    z-index: 0;
+    -webkit-transform: scale(0.1, 0.1);
+    -webkit-transition: -webkit-transform 0s;
+}
+
+.title {
+    padding: 0;
+    margin: 0.25em;
+    font-size: 1.5em;
+    font-eight: 700;
+    line-height: 1.4em;
+    text-align: center;
+}
+
+.heading {
+    padding: 10px 10px;
+    border-bottom: 1px solid #ddd;
+}
+
 /* Below are styles for individual pages */
-#login .current {
-    width:;
-    border: 2px #C0C0C0 solid;
-    /*margin: 25% 30px; */
-    /*padding: 15px;*/
-    border-radius: 30px;
-}
-
-#login input {
-    width: 80%!important;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#login  button.regField,
-#login  button.logField {
-    border-radius: 10%;
-}
-
-#edit input {
-    width: 80%!important;
-    text-align: center;
-    margin: 1em auto;
-}
-
-#edit button > i {
-    font-size: 40px;
-}
-
 #edit #cameraPic {
     width: 200px;
     border: 1px #c0c0c0 solid;

@@ -1,14 +1,46 @@
-<div>
-    <a href="#" class="btn btn-default btn-sm pull-right" onclick="_wf.loadPage('edit', {id: -1, effect: 'nextDisp'});"><i class="glyphicon glyphicon-plus"></i></a>
+<div class="ui dimmable" style="height:100%;">
+    <div class="heading">
+        <button class="mini ui basic icon button" style="float:left;" onclick="_wf.ctrl('list').sidebar('show');">
+            <i class="small reorder icon"></i>
+        </button>
 
-    <h3><i class="glyphicon glyphicon-th-list"></i>我的隨身筆記</h3>
-</div>
+        <button class="mini ui basic icon button" style="float:right;" onclick="_wf.loadPage('edit', {id: -1, effect: 'nextDisp'});">
+            <i class="small add icon"></i>
+        </button>
 
-<div class="panel panel-default">
-  <!-- List group -->
-  <ul class="list-group">
-    {{#each value.list}}
-    <li class="list-group-item"><a href="javascript:_wf.ctrl('list').viewPage('{{ngID}}');">{{title}}</a></li>
-    {{/each}}
-  </ul>
+        <div class="ui title"><i class="list layout icon"></i>我的隨身筆記</div>
+    </div>
+
+    <!-- List group -->
+    <div class="ui fluid vertical menu" style="padding-top: 5px;">
+        {{#each value.list}}
+        <a class="item" href="javascript:_wf.ctrl('list').viewPage('{{ngID}}');">
+            {{title}}
+            <i class="arrow sign right icon"></i>
+        </a>
+        {{/each}}
+    </div>
+
+    <!-- side bar -->
+    <div class="ui sidebar" style="top: 25px; font-size:18px;">
+        <div  class="ui vertical styled menu" style="background-color:rgba(32,32,32,0.9);">
+            <div class="item" onclick="_wf.ctrl('list').sidebar('hide');" style="color:#FFF">
+                <i class="double angle left icon"></i> 收回
+                <div class="ui divider"></div>
+                <div class="menu">
+                    <div class="item" onclick="_wf.ctrl('list').logout();" style="color:#FFF">
+                        <i class="sign out icon"></i> 登出...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui dimmer">
+        <div class="content">
+            <div class="center">
+                <div class="ui large text loader">下載中...</div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -17,6 +17,21 @@ var  _wf = (function() {
         document.addEventListener('deviceready', function() {
             // setup all pages
             if (pages && pages.length > 0)  {
+                // detect device dimensiton
+                var  sw = window.screen.width,
+                     sw10 = sw + 10;
+
+                if ( /iPhone|iPad|iPod/i.test(navigator.userAgent) )  {
+                    $('body').css('margin-top', '20px');
+                }
+
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                style.innerHTML = '.mpage { width: ' + sw + 'px; height: 100%;}\n' +
+                                  '.gotoDisp {left: ' + sw10 + 'px;}\n' +
+                                  '.nextDisp {left: ' + -sw10 + 'px;}';
+                document.getElementsByTagName('head')[0].appendChild(style);
+
                 var  html = '';
                 for (var i in pages)
                     html += '<div id="' + pages[i].id + '" />';
@@ -41,12 +56,12 @@ var  _wf = (function() {
     _wf.addPage = function addPage(pgInfo)  {
         var  pgID = pgInfo.id;
 
-        pgInfo.effect = 'gotoDisp';
+        pgInfo.curEffect = pgInfo.effect = pgInfo.effect || 'gotoDisp';
         pgInfo.refresh = true;
         pgInfo.path = pgInfo.path || pgID;
 
-        $('#' + pgID).addClass('page');
-        $('#' + pgID).addClass('gotoDisp');
+        $('#' + pgID).addClass('mpage');
+        $('#' + pgID).addClass(pgInfo.effect);
         pageMap[pgID] = pgInfo;
     }
 
@@ -55,7 +70,10 @@ var  _wf = (function() {
              dftData = {};
 
         if (pgInfo)  {
-            if (pgInfo.remote && pgInfo.refresh)  {
+            options = options || {};
+            var  refresh = options.hasOwnProperty('refresh')  ?  options.refresh : pgInfo.refresh;
+
+            if (pgInfo.remote && refresh)  {
                 var  reqURL = pgInfo.remote,
                      params = {};
 
@@ -77,6 +95,7 @@ var  _wf = (function() {
                 coimPlugin.send(reqURL, params,
                     function(rtnData) {
                         rtnData.id = dftData.id;
+                        pgInfo.rtnData = rtnData;    // store the result, so when the network connection is broken we'll still have something to show
                         dspPage(pgInfo, options, rtnData);
                     },
                     function(err)  {
@@ -85,7 +104,7 @@ var  _wf = (function() {
                 );
             }
             else
-                dspPage( pgInfo, options );
+                dspPage( pgInfo, options, pgInfo.rtnData );
         }
         else
             alert('No such page (' + id + ')');
@@ -107,6 +126,8 @@ var  _wf = (function() {
                 html = template(result);
             }
 
+            options = options || {};
+
             $('#' + id).html( html );
             showPage(id, options);
             loadScript(id, pgInfo, jsF);
@@ -116,10 +137,7 @@ var  _wf = (function() {
     function  showPage(id, options, callback)  {
         var  oldId = curId,
              curPage = $('#' + id),
-             movEffect = 'gotoDisp';
-
-        if (options && options.effect)
-            movEffect = options.effect;
+             movEffect = options.effect;
 
         curPage.on('webkitTransitionEnd', function(event) {
             if (callback)
@@ -132,10 +150,9 @@ var  _wf = (function() {
 
         if (oldId)
             $('#' + oldId).css('z-index', '0');
-        curPage.css('z-index', '100');
+        curPage.css('z-index', '10');
 
-        var  curEffect = pageMap[id].effect;
-        curPage.removeClass(curEffect);
+        curPage.removeClass(pageMap[id].curEffect);
         curPage.addClass('onDisp');
         curId = id;
     };
@@ -161,9 +178,11 @@ var  _wf = (function() {
     };
 
     function  hidePage(pageID, movEffect)  {
+        pageMap[pageID].curEffect = movEffect = movEffect || pageMap[pageID].effect;
+        //console.log('hide page [%s], set effect to %s, page effect is %s', pageID, movEffect, pageMap[pageID].effect);
+
         $('#' + pageID).removeClass('onDisp');
         $('#' + pageID).addClass(movEffect);
-        pageMap[pageID].effect = movEffect;
     };
 
     return  _wf;

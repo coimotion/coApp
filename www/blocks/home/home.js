@@ -5,5 +5,8 @@ ctrl.onDisplayed = function()  {
                 nextPage = 'list';
 
         _wf.loadPage( nextPage );
+    },
+    function(err) {
+        _wf.loadPage( 'login' );
     });
 };

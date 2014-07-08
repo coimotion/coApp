@@ -1,17 +1,38 @@
-<div class="current text-center">
-<form>
-    <!-- <h2>請登入</h2> -->
-    <div class="btn-group">
-      <button id="start" type="button" class="btn btn-default" onclick="_wf.ctrl('login').switchField('log')">登入</button>
-      <button type="button" class="btn btn-default" onclick="_wf.ctrl('login').switchField('reg')">註冊</button>
-    </div>
-    <div><input type="email" name="accName" class="form-control" placeholder="帳號" /></div>
-    <div><input type="password" name="passwd" class="form-control" placeholder="密碼" /></div>
-    <div><input type="password" name="passwd2" class="form-control regField" placeholder="重複密碼" /></div>
+<div style="margin-top: 15px;">
 
-    <div>
-        <button type="button" class="btn btn-warning regField" onclick="_wf.ctrl('login').doRegister();">註冊<i class="glyphicon glyphicon-arrow-right"></i></button>
-        <button type="button" class="btn btn-primary btn-lg logField" onclick="_wf.ctrl('login').doLogin();">登入<i class="glyphicon glyphicon-arrow-right"></i></button>
+    <div class="ui menu">
+        <a id="loginMenu" class="active item" href="javascript:_wf.ctrl('login').switchField('log');">
+            <i class="home icon"></i> 登入
+        </a>
+        <a id="regMenu" class="item" href="javascript:_wf.ctrl('login').switchField('reg');">
+            <i class="mail icon"></i> 註冊
+        </a>
     </div>
-</form>
+
+    <div class="ui form segment" style="margin: 5px 15px;">
+        <div class="field">
+            <label>帳號：</label>
+            <div class="ui left labeled icon input">
+                <input type="email" name="accName" placeholder="帳號" />
+                <i class="user icon"></i>
+            </div>
+        </div>
+        <div class="field">
+            <label>密碼：</label>
+            <div class="ui left labeled icon input">
+                <input type="password" name="passwd" placeholder="密碼" />
+                <i class="lock icon"></i>
+            </div>
+        </div>
+        <div class="field regField">
+            <label>重複密碼：</label>
+            <div class="ui left labeled icon input">
+                <input type="password" name="passwd2" placeholder="重複密碼" />
+                <i class="lock icon"></i>
+            </div>
+        </div>
+
+        <div class="ui green submit button logField" onclick="_wf.ctrl('login').doLogin();">登入</div>
+        <div class="ui blue submit button regField" onclick="_wf.ctrl('login').doRegister();">註冊</div>
+    </div>
 </div>

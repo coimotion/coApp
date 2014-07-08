@@ -1,5 +1,5 @@
 ctrl.onDisplayed = function()  {
-    ctrl.r("#start").click();
+    ctrl.r(".regField").hide();
 };
 
 ctrl.doLogin = function()  {
@@ -36,9 +36,14 @@ ctrl.doRegister = function()  {
 
 ctrl.switchField = function(type) {
     if (type === 'log') {
+        ctrl.r('#regMenu').removeClass('active');
+        ctrl.r('#loginMenu').addClass('active');
         ctrl.r(".logField").show();
         ctrl.r(".regField").hide();
-    } else {
+    }
+    else {
+        ctrl.r('#loginMenu').removeClass('active');
+        ctrl.r('#regMenu').addClass('active');
         ctrl.r(".logField").hide();
         ctrl.r(".regField").show();
     }

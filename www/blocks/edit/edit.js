@@ -4,6 +4,11 @@ ctrl.onDisplayed = function()  {
     capturedPath = null;
 };
 
+ctrl.backToList = function(ngID)  {
+    ctrl.r('.dimmer').dimmer('show');
+    _wf.loadPage('list');
+};
+
 ctrl.capture = function capturePhoto() {
     var  options = {
         sourceType: Camera.PictureSourceType.CAMERA,
