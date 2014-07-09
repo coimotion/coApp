@@ -24,14 +24,6 @@ coapp.js 會在裝置啟動完成後自動建立網頁的先關設定，所以�
 ### 參考資料
 這個[簡報檔](http://www.slideshare.net/BenLue/ksdg0621-share)有更多參考資訊。
 
-## 注意事項
-目前版本只針對 iOS 做設計。如果要在 Android 上正常執行，請在 coapp.css 加上適當的media query，以便處理不同的螢幕尺寸。
-
-## Call For Contributors
-coApp 一開始只是為了展示如何使用 COIMOTION 的 API 服務而建立，不過 coApp 事實上有很好的潛力可以不需原生碼（native code）就能建立反應速度快且功能強大的 app。
-
-COIMOTION 團隊目前專注於後端服務（BaaS）的開發，不過我們樂於見到 coApp 能進一步發展成為 app 開發者的有效工具。所以如果有開發者有興趣協助 coApp 進一步的開發，歡迎和我們[聯繫](http://tw.coimotion.com/#content6)或討論。目前比較需要改善的部分包含頁面的過場效果、Android devices 的設定、以及 UI framework 的選用等。
-
 ## Release Note
 0.0.3:
 
